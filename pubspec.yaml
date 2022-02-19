@@ -30,10 +30,27 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+
+  # For Network Calls
+  # Ref: https://pub.dev/packages/dio
+  dio: ^4.0.4
+
+  # For discover network connectivity
+  # Ref: https://pub.dev/packages/connectivity_plus
+  connectivity_plus: ^2.2.1
+
+  # For toasts and snackbars
+  # Ref: https://pub.dev/packages/another_flushbar
+  another_flushbar: ^1.10.28
+
+  # For state managment
+  # Ref: https://pub.dev/packages/provider
+  provider: ^6.0.2
+
+
 
 dev_dependencies:
   flutter_test:
