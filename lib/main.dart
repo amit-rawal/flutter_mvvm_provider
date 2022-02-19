@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_provider/ui/views/HomePage.dart';
+import 'package:flutter_mvvm_provider/view_models/home_view_model.dart';
+import 'package:flutter_mvvm_provider/views/pages/HomePage.dart';
 import 'package:provider/provider.dart';
-
-import 'business_logics/view_models/home_view_model.dart';
 
 void main() {
   runApp(

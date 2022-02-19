@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_provider/business_logics/models/base_model/request_model.dart';
-import 'package:flutter_mvvm_provider/business_logics/models/base_model/response_model.dart';
+import 'package:flutter_mvvm_provider/models/base_model/request_model.dart';
+import 'package:flutter_mvvm_provider/models/base_model/response_model.dart';
 import 'package:flutter_mvvm_provider/utility/constants/api_constants.dart';
 
 import 'network_manager.dart';

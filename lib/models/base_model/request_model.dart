@@ -4,7 +4,8 @@ abstract class BaseRequestModel {
   Map<String, String> get header => {
         "Content-Type": "application/json",
         "Accept": "application/json",
-        "Authorization": "", //Todo set authorizastion token after login
+        "Authorization":
+            "", //Todo set authorizastion / bearer token after login
       };
 
   String get path;
