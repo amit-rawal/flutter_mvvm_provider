@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_provider/models/posts/PostResponseModel.dart';
+import 'package:flutter_mvvm_provider/models/posts/post_response_model.dart';
 
 class HomeViewModel extends ChangeNotifier {
   List<Post> _postList = [];

@@ -24,6 +24,7 @@ class APIManager {
   ///This method [_validateStatus] always returns true so that dio returns data for any http status code
   static bool _validateStatus(_) => true;
   static const bool _receiveDataWhenStatusError = true;
+  static const int _defaultTimeOut = 45;
 
   Future<BaseResponseModel> sendRequest(BaseRequestModel requestModel) async {
     BaseResponseModel responseModel = BaseResponseModel(false);
@@ -34,81 +35,90 @@ class APIManager {
     }
 
     String _url = ApiConstants.appBaseURL + requestModel.path;
+    debugPrint(">>> url $_url");
 
     late final Response httpResponse;
 
     switch (requestModel.requestType) {
       case RequestType.get:
-        httpResponse = await _dio.get(
-          _url,
-          queryParameters: requestModel.param,
-          options: Options(
-            headers: requestModel.header,
-            receiveDataWhenStatusError: _receiveDataWhenStatusError,
-            validateStatus: _validateStatus,
-          ),
-        );
+        httpResponse = await _dio
+            .get(
+              _url,
+              queryParameters: requestModel.param,
+              options: Options(
+                headers: requestModel.header,
+                receiveDataWhenStatusError: _receiveDataWhenStatusError,
+                validateStatus: _validateStatus,
+              ),
+            )
+            .timeout(Duration(seconds: _defaultTimeOut));
         break;
 
       case RequestType.put:
-        httpResponse = await _dio.put(
-          _url,
-          queryParameters: requestModel.param,
-          data: requestModel.body,
-          options: Options(
-            headers: requestModel.header,
-            receiveDataWhenStatusError: _receiveDataWhenStatusError,
-            validateStatus: _validateStatus,
-          ),
-        );
+        httpResponse = await _dio
+            .put(
+              _url,
+              queryParameters: requestModel.param,
+              data: requestModel.body,
+              options: Options(
+                headers: requestModel.header,
+                receiveDataWhenStatusError: _receiveDataWhenStatusError,
+                validateStatus: _validateStatus,
+              ),
+            )
+            .timeout(Duration(seconds: _defaultTimeOut));
         break;
 
       case RequestType.post:
-        httpResponse = await _dio.post(
-          _url,
-          queryParameters: requestModel.param,
-          data: requestModel.body,
-          options: Options(
-            headers: requestModel.header,
-            receiveDataWhenStatusError: _receiveDataWhenStatusError,
-            validateStatus: _validateStatus,
-          ),
-        );
+        httpResponse = await _dio
+            .post(
+              _url,
+              queryParameters: requestModel.param,
+              data: requestModel.body,
+              options: Options(
+                headers: requestModel.header,
+                receiveDataWhenStatusError: _receiveDataWhenStatusError,
+                validateStatus: _validateStatus,
+              ),
+            )
+            .timeout(Duration(seconds: _defaultTimeOut));
         break;
 
       case RequestType.patch:
-        httpResponse = await _dio.patch(
-          _url,
-          queryParameters: requestModel.param,
-          data: requestModel.body,
-          options: Options(
-            headers: requestModel.header,
-            receiveDataWhenStatusError: _receiveDataWhenStatusError,
-            validateStatus: _validateStatus,
-          ),
-        );
+        httpResponse = await _dio
+            .patch(
+              _url,
+              queryParameters: requestModel.param,
+              data: requestModel.body,
+              options: Options(
+                headers: requestModel.header,
+                receiveDataWhenStatusError: _receiveDataWhenStatusError,
+                validateStatus: _validateStatus,
+              ),
+            )
+            .timeout(Duration(seconds: _defaultTimeOut));
         break;
 
       case RequestType.delete:
-        httpResponse = await _dio.delete(
-          _url,
-          queryParameters: requestModel.param,
-          data: requestModel.body,
-          options: Options(
-            headers: requestModel.header,
-            receiveDataWhenStatusError: _receiveDataWhenStatusError,
-            validateStatus: _validateStatus,
-          ),
-        );
+        httpResponse = await _dio
+            .delete(
+              _url,
+              queryParameters: requestModel.param,
+              data: requestModel.body,
+              options: Options(
+                headers: requestModel.header,
+                receiveDataWhenStatusError: _receiveDataWhenStatusError,
+                validateStatus: _validateStatus,
+              ),
+            )
+            .timeout(Duration(seconds: _defaultTimeOut));
         break;
     }
 
-    debugPrint(">>> url $_url");
     debugPrint(">>> status code ${httpResponse.statusCode}");
+    debugPrint("httpResponse >>> ${httpResponse.data}");
 
     if (httpResponse.statusCode == 200) {
-      debugPrint("httpResponse >>> ${httpResponse.data}");
-
       var parsedJson = jsonDecode(httpResponse.data);
 
       String? error = parsedJson["error"];
