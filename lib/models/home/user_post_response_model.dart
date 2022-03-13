@@ -1,22 +1,40 @@
 import 'dart:convert';
 
+import '../base_model/base_response_model.dart';
+
 //For model creation
 //https://app.quicktype.io
 
-class Post {
-  Post({
-    int? userId,
-    int? id,
-    String? title,
-    String? body,
-  }) {
+class UserPostResponseModel {
+  UserPostResponseModel({this.posts = const []});
+
+  final List<Posts> posts;
+
+  factory UserPostResponseModel.fromJson(Map<String, dynamic> data) {
+    return UserPostResponseModel(
+        posts: List.unmodifiable(
+            data.entries.map((e) => Posts.fromJson(Map.fromEntries([e])))));
+  }
+}
+
+class Posts extends BaseResponseModel {
+  Posts(
+      {int? userId,
+      int? id,
+      String? title,
+      String? body,
+      APIStatus apiStatus = APIStatus.idle,
+      String? message})
+      : super(apiStatus, message) {
     _userId = userId;
     _id = id;
     _title = title;
     _body = body;
   }
 
-  Post.fromJson(dynamic json) {
+  Posts.fromJson(dynamic json,
+      {APIStatus apiStatus = APIStatus.idle, String? message})
+      : super(apiStatus, message) {
     _userId = json['userId'];
     _id = json['id'];
     _title = json['title'];
@@ -43,12 +61,12 @@ class Post {
   }
 }
 
-// Methods to create list of list of posts from json string and vise-versa
+// Methods to create list of list of home from json string and vise-versa
 
-List<Post> PostFromJson(String str) =>
-    List<Post>.from(json.decode(str).map((x) => Post.fromJson(x)));
+List<Posts> PostFromJson(String str) =>
+    List<Posts>.from(json.decode(str).map((x) => Posts.fromJson(x)));
 
-String PostToJson(List<Post> data) =>
+String PostToJson(List<Posts> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 //Respose from server  -

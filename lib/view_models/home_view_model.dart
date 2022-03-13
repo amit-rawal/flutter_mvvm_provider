@@ -1,25 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_provider/models/posts/post_response_model.dart';
+
+import '../models/base_model/base_response_model.dart';
+import '../models/home/user_post_response_model.dart';
+import '../repository/user_post_repository.dart';
+import '../utility/helpers/APIHelper/api_response_model.dart';
 
 class HomeViewModel extends ChangeNotifier {
-  List<Post> _postList = [];
+  List<Posts> _postList = [];
 
-  addPostToList(Post post) {
-    _postList.add(post);
-    notifyListeners();
+  ValueNotifier<Posts> viewModelNotifier =
+      ValueNotifier(Posts(apiStatus: APIStatus.idle));
+
+  fetchPosts() async {
+    viewModelNotifier =
+        ValueNotifier(Posts(apiStatus: APIStatus.loading));
+    try {
+
+      var responseObject = await PostRepository().getUserPosts();
+
+      if (responseObject is Success) {
+
+       List <Map<String, dynamic>> postList = responseObject.response as List <Map<String, dynamic>>;
+
+        List<Posts> posts = List<Posts>.from(
+            postList.map((x) => Posts.fromJson(x)));
+
+        viewModelNotifier.value =
+            Posts(,apiStatus: APIStatus.completed);
+
+      }
+      if (responseObject is Failure) {
+        viewModelNotifier.value = Posts(
+            apiStatus: APIStatus.error, message: responseObject.errorResponse.toString());
+      }
+
+
+    } catch (e) {
+      viewModelNotifier.value = Posts(
+          apiStatus: APIStatus.error, message: e.toString());
+    }
   }
-
-  setPostList(List<Post> postList) {
-    _postList = [];
-    _postList = postList;
-    notifyListeners();
-  }
-
-  List<Post> getPostList() {
-    return _postList;
-  }
-
-// Future<bool> uploadPost(Post post) async {
-//   return await ApiService.addPost(post, this);
-// }
 }

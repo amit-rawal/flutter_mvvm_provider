@@ -8,9 +8,7 @@ class LoaderWidget {
 
   static void showLoader(BuildContext context) {
     FocusManager.instance.primaryFocus?.unfocus();
-
     hideLoader(context);
-
     _overlayEntry = createOverlayEntry(context);
     Overlay.of(context)?.insert(_overlayEntry!);
     _onScreen = true;
