@@ -6,10 +6,11 @@ import '../repository/user_post_repository.dart';
 import '../utility/helpers/APIHelper/api_response_model.dart';
 
 class HomeViewModel extends ChangeNotifier {
-  List<Posts> _postList = [];
 
-  ValueNotifier<Posts> viewModelNotifier =
-      ValueNotifier(Posts(apiStatus: APIStatus.idle));
+  List<Posts> postList = [];
+
+  ValueNotifier<UserPostResponseModel> viewModelNotifier = ValueNotifier(UserPostResponseModel(APIStatus.idle));
+      //ValueNotifier(UserPostResponseModel(apiStatus: APIStatus.idle));
 
   fetchPosts() async {
     viewModelNotifier =
@@ -21,9 +22,6 @@ class HomeViewModel extends ChangeNotifier {
       if (responseObject is Success) {
 
        List <Map<String, dynamic>> postList = responseObject.response as List <Map<String, dynamic>>;
-
-        List<Posts> posts = List<Posts>.from(
-            postList.map((x) => Posts.fromJson(x)));
 
         viewModelNotifier.value =
             Posts(,apiStatus: APIStatus.completed);

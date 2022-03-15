@@ -3,7 +3,8 @@ import '../utility/helpers/APIHelper/api_manager.dart';
 
 class PostRepository {
   Future<Object> getUserPosts() async {
-    final obj = await APIManager.sharedInstance.sendRequest(PostRequestModel());
+    final obj =
+        await APIManager.sharedInstance.sendRequest(UserPostRequestModel());
     return obj;
   }
 }

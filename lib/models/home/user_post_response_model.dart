@@ -5,36 +5,38 @@ import '../base_model/base_response_model.dart';
 //For model creation
 //https://app.quicktype.io
 
-class UserPostResponseModel {
-  UserPostResponseModel({this.posts = const []});
+class UserPostResponseModel extends BaseResponseModel {
+  UserPostResponseModel(List<Posts>? posts,
+      {APIStatus apiStatus = APIStatus.idle, String? message})
+      : super(apiStatus, message) {
+    _posts = posts;
+  }
 
-  final List<Posts> posts;
+  List<Posts>? _posts;
 
-  factory UserPostResponseModel.fromJson(Map<String, dynamic> data) {
-    return UserPostResponseModel(
-        posts: List.unmodifiable(
-            data.entries.map((e) => Posts.fromJson(Map.fromEntries([e])))));
+  List<Posts>? get posts => _posts;
+
+  UserPostResponseModel.fromJson(List<Map<String, dynamic>> data,
+      {APIStatus apiStatus = APIStatus.idle, String? message})
+      : super(apiStatus, message) {
+    _posts = List<Posts>.from(data.map((x) => Posts.fromJson(x))) ?? [];
   }
 }
 
-class Posts extends BaseResponseModel {
-  Posts(
-      {int? userId,
-      int? id,
-      String? title,
-      String? body,
-      APIStatus apiStatus = APIStatus.idle,
-      String? message})
-      : super(apiStatus, message) {
+class Posts {
+  Posts({
+    int? userId,
+    int? id,
+    String? title,
+    String? body,
+  }) {
     _userId = userId;
     _id = id;
     _title = title;
     _body = body;
   }
 
-  Posts.fromJson(dynamic json,
-      {APIStatus apiStatus = APIStatus.idle, String? message})
-      : super(apiStatus, message) {
+  Posts.fromJson(dynamic json) {
     _userId = json['userId'];
     _id = json['id'];
     _title = json['title'];

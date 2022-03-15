@@ -125,19 +125,6 @@ class APIManager {
 
     var response = _handleResponse(httpResponse);
     return response;
-
-    // on HttpException {
-    //   return Failure(
-    //       statusCode: NO_INTERNET, errorResponse: 'No Internet Connection');
-    // } on SocketException {
-    //   return Failure(
-    //       statusCode: NO_INTERNET, errorResponse: 'No Internet Connection');
-    // } on FormatException {
-    //   return Failure(
-    //       statusCode: INVALID_FORMAT, errorResponse: 'Invalid Format');
-    // } catch (e) {
-    //   return Failure(statusCode: UNKNOWN_ERROR, errorResponse: 'Unknown Error');
-    // }
   }
 
   Object _handleResponse(Response response) {
