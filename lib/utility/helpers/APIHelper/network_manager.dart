@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_provider/utility/common_views/alert_bar.dart';
+
+import '../../common_widgets/alert_bar.dart';
 
 class NetworkManager {
   static Future<bool> checkConnectivity(

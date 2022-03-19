@@ -1,11 +1,11 @@
-import 'package:flutter_mvvm_provider/models/base_model/base_request_model.dart';
+import 'package:flutter_mvvm_provider/base/Model/base_request_model.dart';
 import 'package:flutter_mvvm_provider/utility/constants/api_constants.dart';
 
-class UserPostRequestModel extends BaseRequestModel {
-  UserPostRequestModel();
+class UsersRequestModel extends BaseRequestModel {
+  UsersRequestModel();
 
   @override
-  String get path => ApiConstants.getPosts;
+  String get path => ApiConstants.getUsers;
 
   // @override
   // Map<String, String> get header => {

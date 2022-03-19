@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_provider/view_models/home_view_model.dart';
-import 'package:flutter_mvvm_provider/views/pages/HomePage.dart';
+import 'package:flutter_mvvm_provider/view_models/dash_view_model.dart';
+import 'package:flutter_mvvm_provider/views/pages/dashboard/dashboard_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => HomeViewModel()),
+        ChangeNotifierProvider(create: (_) => DashboardViewModel()),
       ],
       child: MyApp(),
     ),
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter + MVVM + Provider',
-      home: HomePage(),
+      home: DashboardPage(),
     );
   }
 }
