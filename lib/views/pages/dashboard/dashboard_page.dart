@@ -15,29 +15,43 @@ class DashboardPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(title: Text("Home")),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: RefreshIndicator(
-          onRefresh: () => viewModel.refreshData(),
-          backgroundColor: Colors.teal,
-          color: Colors.white,
-          displacement: 200,
-          strokeWidth: 5,
-          child: viewModel.errorMessage != null
-              ? Center(
-                  child: Expanded(child: Text("${viewModel.errorMessage}")))
-              : _getBody(viewModel),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                flex: 1,
+                child: RefreshIndicator(
+                  onRefresh: () => viewModel.refreshData(),
+                  backgroundColor: Colors.teal,
+                  color: Colors.white,
+                  displacement: 100,
+                  strokeWidth: 2,
+                  child: _getBody(viewModel),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
   Widget _getBody(DashboardViewModel viewModel) {
+    if (viewModel.isInitialized == false || viewModel.isLoading) {
+      return Center(child: CircularProgressIndicator());
+    } else if (viewModel.errorMessage != null) {
+      return Center(child: Text("${viewModel.errorMessage}"));
+    }
     if (viewModel.users.isNotEmpty) {
       return ListView.builder(
           shrinkWrap: true,
           physics: const BouncingScrollPhysics(
               parent: AlwaysScrollableScrollPhysics()),
+          //physics: NeverScrollableScrollPhysics(),
           itemCount: viewModel.users.length,
           itemBuilder: (context, index) {
             return ListTile(
@@ -46,10 +60,7 @@ class DashboardPage extends StatelessWidget {
             );
           });
     } else {
-      return Padding(
-        padding: EdgeInsets.symmetric(vertical: 64.0),
-        child: Center(child: Text("Nothing to show")),
-      );
+      return Center(child: Text("Nothing to show"));
     }
   }
 }

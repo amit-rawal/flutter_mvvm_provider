@@ -25,23 +25,43 @@ class _BaseViewState<T extends BaseViewModel> extends State<BaseView<T>> {
     );
   }
 
-  Widget _buildScreenContent(
-          BuildContext context, T viewModel, Widget? child) =>
-      !viewModel.isInitialized
-          ? Container(
-              color: Colors.white,
-              child: Center(child: CircularProgressIndicator()))
-          : Stack(
-              children: [
-                widget.builder(context, viewModel),
-                Visibility(
-                  visible: viewModel.isLoading,
-                  child: Center(
-                    child: Center(child: CircularProgressIndicator()),
-                  ),
-                )
-              ],
-            );
+  // Widget _buildScreenContent(
+  //         BuildContext context, T viewModel, Widget? child) =>
+  //     !viewModel.isInitialized
+  //         ? Container(
+  //             color: Colors.white,
+  //             child: Center(child: CircularProgressIndicator()))
+  //         : Stack(
+  //             children: [
+  //               widget.builder(context, viewModel),
+  //               Visibility(
+  //                 visible: viewModel.isLoading,
+  //                 child: Center(
+  //                   child: Center(child: CircularProgressIndicator()),
+  //                 ),
+  //               )
+  //             ],
+  //           );
+
+  Widget _buildScreenContent(BuildContext context, T viewModel, Widget? child) {
+    return widget.builder(context, viewModel);
+
+    // !viewModel.isInitialized
+    //  ? Container(
+    //      color: Colors.white,
+    //      child: Center(child: CircularProgressIndicator()))
+    //  : Stack(
+    //      children: [
+    //        widget.builder(context, viewModel),
+    //        Visibility(
+    //          visible: viewModel.isLoading,
+    //          child: Center(
+    //            child: Center(child: CircularProgressIndicator()),
+    //          ),
+    //        )
+    //      ],
+    //    );
+  }
 }
 
 //Alternative way
