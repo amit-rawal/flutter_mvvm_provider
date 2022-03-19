@@ -4,14 +4,8 @@ import 'package:flutter_mvvm_provider/views/pages/dashboard/dashboard_page.dart'
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => DashboardViewModel()),
-      ],
-      child: MyApp(),
-    ),
-  );
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,9 +13,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter + MVVM + Provider',
-      home: DashboardPage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => DashboardViewModel()),
+      ],
+      child: MaterialApp(
+        title: 'Flutter + MVVM + Provider',
+        home: DashboardPage(),
+      ),
     );
   }
 }
