@@ -17,7 +17,12 @@ class DashboardPage extends StatelessWidget {
       appBar: AppBar(title: Text("Home")),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
+        child: RefreshIndicator(
+          onRefresh: () => viewModel.refreshData(),
+          backgroundColor: Colors.teal,
+          color: Colors.white,
+          displacement: 200,
+          strokeWidth: 5,
           child: viewModel.errorMessage != null
               ? Center(
                   child: Expanded(child: Text("${viewModel.errorMessage}")))
@@ -31,7 +36,8 @@ class DashboardPage extends StatelessWidget {
     if (viewModel.users.isNotEmpty) {
       return ListView.builder(
           shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
+          physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics()),
           itemCount: viewModel.users.length,
           itemBuilder: (context, index) {
             return ListTile(

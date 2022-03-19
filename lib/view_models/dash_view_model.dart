@@ -11,8 +11,10 @@ class DashboardViewModel extends BaseViewModel {
   List<Users> _users = [];
   List<Users> get users => _users;
 
-  Future<void> fetchUsers() async {
-    changeStatus();
+  Future<void> fetchUsers({bool isShowLoader = true}) async {
+    if (isShowLoader) {
+      changeStatus();
+    }
     try {
       var response = await DashboardServices().getUsers();
       if (response.isSuccess) {
@@ -23,7 +25,14 @@ class DashboardViewModel extends BaseViewModel {
     } catch (e) {
       errorMessage = "DashboardViewModel fetchUsers error: ${e.toString()}";
     }
-    changeStatus();
+    if (isShowLoader) {
+      changeStatus();
+    }
+  }
+
+  Future<void> refreshData() async {
+    _users.clear();
+    await fetchUsers(isShowLoader: false);
   }
 
   @override
