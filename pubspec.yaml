@@ -46,7 +46,9 @@ dependencies:
   # Ref: https://pub.dev/packages/provider
   provider: ^6.0.2
 
-
+  #For for querying information about an application package.
+  #Ref: https://pub.dev/packages/package_info_plus
+  package_info_plus: ^1.4.0
 
 dev_dependencies:
   flutter_test:
