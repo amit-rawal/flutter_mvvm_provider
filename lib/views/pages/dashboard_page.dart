@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_provider/views/pages/side_menu_page.dart';
 
 import '../../base/views/base_view.dart';
+import '../../utility/common_widgets/AppVersionView.dart';
 import '../../view_models/dash_view_model.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -35,6 +36,7 @@ class DashboardPage extends StatelessWidget {
                   child: _getBody(viewModel),
                 ),
               ),
+              Center(child: AppVersion()),
             ],
           ),
         ),
