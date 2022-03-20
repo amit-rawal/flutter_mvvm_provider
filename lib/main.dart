@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_provider/utility/navigator/navigator.dart';
 import 'package:flutter_mvvm_provider/view_models/dash_view_model.dart';
-import 'package:flutter_mvvm_provider/views/pages/dashboard/dashboard_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  AppNavigator.init();
   runApp(MyApp());
 }
 
@@ -19,7 +20,10 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter + MVVM + Provider',
-        home: DashboardPage(),
+        home: Router(
+          routerDelegate: AppNavigator.instance,
+          backButtonDispatcher: RootBackButtonDispatcher(),
+        ),
       ),
     );
   }

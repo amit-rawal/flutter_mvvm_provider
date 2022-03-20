@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_provider/views/pages/side_menu_page.dart';
 
-import '../../../base/views/base_view.dart';
-import '../../../view_models/dash_view_model.dart';
+import '../../base/views/base_view.dart';
+import '../../view_models/dash_view_model.dart';
 
 class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -15,6 +16,7 @@ class DashboardPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(title: Text("Home")),
+      drawer: AppDrawer(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
