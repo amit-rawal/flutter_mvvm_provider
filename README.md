@@ -3,9 +3,13 @@ This flutter demo for MVVM Design pattern with provider
 <h1>About MVVM Architecture</h1>
 <p>
 MVVM is one of the architectural patterns which enhances separation of concerns, it allows separating the user interface logic from the business (or the back-end) logic. Its target (with other MVC patterns goal) is to achieve the following principle “Keeping UI code simple and free of app logic in order to make it easier to manage”.
-MVVM is an abbreviation of Model View Veiw model where your presentaion layer will be divided into three packages 
+    
+MVVM is an abbreviation of Model View Veiw model where your presentaion layer will be divided into three packages -
+    
 <Br/> <b>Model</b> : Model represents the data and business logic of the app.
+    
 <Br/> <b>View</b> : The view role in this pattern is to observe (or subscribe to) a ViewModel observable to get data in order to update UI elements accordingly.
+    
 <Br/> <b>View Model</b> : ViewModel interacts with model and also prepares observable(s) that can be observed by a View.
 
 <div id="container">
