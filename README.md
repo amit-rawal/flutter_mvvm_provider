@@ -15,9 +15,10 @@ MVVM is an abbreviation of Model View Veiw model where your presentaion layer wi
 <div id="container">
     <img src="https://miro.medium.com/max/1212/1*BpxMFh7DdX0_hqX6ABkDgw.png" alt="" />
 </div>
+
 <p>This repo contains the following branches
   <ul>
-    <li><b>master</b>: contains MVVM architecture with provider, network connection check, API manager, Drawer and app version check </li>
+    <li><b>master</b>: Contains MVVM architecture with provider, network connection check, API manager, Drawer and app version check. </li>
   </ul>
 </p>
 
@@ -40,7 +41,7 @@ MVVM is an abbreviation of Model View Veiw model where your presentaion layer wi
 
 MIT License
 
-Copyright (c) 2022 Amit Rawal
+Copyright (c) 2022 **Amit Rawal**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
