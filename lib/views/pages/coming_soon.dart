@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_provider/utility/constants/constant.dart';
+import 'package:shri_app/utility/constants/constant.dart';
 
+import '../../utility/common_widgets/spacing_widget.dart';
 import '../../utility/constants/colors.dart';
 import '../../utility/constants/constant.dart';
 import '../../utility/navigator/navigator.dart';
@@ -59,9 +60,7 @@ class ComingSoonPage extends StatelessWidget {
                   color: Colors.black,
                   size: 24,
                 ),
-                SizedBox(
-                  width: 12,
-                ),
+                addHorizontalSpace(12),
                 Text(
                   pageTitle,
                   style: TextStyle(
@@ -74,9 +73,7 @@ class ComingSoonPage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height: 8,
-          ),
+          addVerticalSpace(8),
           Row(
             children: [
               Text(
