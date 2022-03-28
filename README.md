@@ -1,5 +1,11 @@
 # MVVM-Demo
-This flutter demo for MVVM Design pattern with provider 
+This flutter demo have following things -
+
+Design pattern - **MVVM**
+State Management - **Provider**
+Navigation - **Navigator 2.0**
+API Calling - **Dio**
+
 <h1>About MVVM Architecture</h1>
 <p>
 MVVM is one of the architectural patterns which enhances separation of concerns, it allows separating the user interface logic from the business (or the back-end) logic. Its target (with other MVC patterns goal) is to achieve the following principle “Keeping UI code simple and free of app logic in order to make it easier to manage”.
