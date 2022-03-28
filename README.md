@@ -1,4 +1,4 @@
-# MVVM-Demo
+# Flutter + MVVM + Provider + Navigator 2.0
 This flutter demo have following things -
 
 Design pattern - **MVVM**
@@ -22,6 +22,7 @@ MVVM is an abbreviation of Model View Veiw model where your presentaion layer wi
 <div id="container">
     <img src="https://miro.medium.com/max/1212/1*BpxMFh7DdX0_hqX6ABkDgw.png" alt="" />
 </div>
+
 
 
 <p>This repo contains the following branches
