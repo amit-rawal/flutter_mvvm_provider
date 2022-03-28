@@ -41,9 +41,9 @@ MVVM is an abbreviation of Model View Veiw model where your presentaion layer wi
 
 <p>
 <div align="center">
-        <img width="45%" src="https://github.com/amit-rawal/flutter_mvvm_provider/blob/main/screenshots/home_page.png" alt="Home Page" title="Home Page"</img>
+        <img width="35%" src="https://github.com/amit-rawal/flutter_mvvm_provider/blob/main/screenshots/home_page.png" alt="Home Page" title="Home Page"</img>
         <img height="0" width="8px">
-        <img width="45%" src="https://github.com/amit-rawal/flutter_mvvm_provider/blob/main/screenshots/drawer.png" alt="Drawer" title="Side Menu / Drawer"></img>
+        <img width="35%" src="https://github.com/amit-rawal/flutter_mvvm_provider/blob/main/screenshots/drawer.png" alt="Drawer" title="Side Menu / Drawer"></img>
 </div>
 </p>
 
