@@ -1,11 +1,16 @@
 # Flutter + MVVM + Provider + Navigator 2.0
 This flutter demo have following things -
-
+<p>
+    
 Design pattern - **MVVM**
+    
 State Management - **Provider**
+    
 Navigation - **Navigator 2.0**
+    
 API Calling - **Dio**
-
+</p>
+    
 <h1>About MVVM Architecture</h1>
 <p>
 MVVM is one of the architectural patterns which enhances separation of concerns, it allows separating the user interface logic from the business (or the back-end) logic. Its target (with other MVC patterns goal) is to achieve the following principle “Keeping UI code simple and free of app logic in order to make it easier to manage”.
@@ -34,17 +39,18 @@ MVVM is an abbreviation of Model View Veiw model where your presentaion layer wi
 </p>
 <h2> Used Libraries</h2>
 <ul>
-<li>dio</li>
-<li>connectivity_plus</li>
-<li>provider</li>
+<li>dio - For Network Calls</li>
+<li>connectivity_plus - To check network connection</li>
+<li>provider - for state management </li>
+<li>package_info_plus - for querying information about an application package. </li>
 </ul>
 
 
 <p>
 <div align="center">
-        <img width="35%" src="https://github.com/amit-rawal/flutter_mvvm_provider/blob/main/screenshots/home_page.png" alt="Home Page" title="Home Page"</img>
-        <img height="0" width="8px">
-        <img width="35%" src="https://github.com/amit-rawal/flutter_mvvm_provider/blob/main/screenshots/drawer.png" alt="Drawer" title="Side Menu / Drawer"></img>
+        <img width="25%" src="https://github.com/amit-rawal/flutter_mvvm_provider/blob/main/screenshots/home_page.png" alt="Home Page" title="Home Page"</img>
+        <img height="0" width="20px">
+        <img width="25%" src="https://github.com/amit-rawal/flutter_mvvm_provider/blob/main/screenshots/drawer.png" alt="Drawer" title="Side Menu / Drawer"></img>
 </div>
 </p>
 
